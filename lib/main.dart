@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:latihan/carView/car_view.dart';
 import 'package:latihan/cardetail/cardetail.dart';
+import 'package:latihan/cardetail/classicCarDetail.dart';
+import 'package:latihan/cardetail/electricCarDetail.dart';
+import 'package:latihan/cardetail/flyingCarDetail.dart';
 import 'package:latihan/core/provider/theme_provider.dart';
 import 'package:latihan/home/home.dart';
 
@@ -19,7 +23,11 @@ class MyApp extends ConsumerWidget {
       initialRoute: '/',
       routes:{
         '/': (context) => home(),
-        '/detail': (context) => CarDetail()
+        '/detail': (context) => CarDetail(),
+        '/carView': (context) => carView(),
+        '/classicDetail': (context) => ClassicCarDetail(),
+        '/flyingDetail': (context) => FlyingCarDetail(),
+        '/electricDetail': (context) => ElectricCarDetail()
       }
     );
   }

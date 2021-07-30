@@ -4,6 +4,18 @@ final carDetailViewModelProvider =
     StateNotifierProvider<CarDetailViewModel, bool>(
         (ref) => CarDetailViewModel());
 
+final electricCarViewModelProvider =
+StateNotifierProvider<CarDetailViewModel, bool>(
+        (ref) => CarDetailViewModel());
+
+final classicCarViewModelProvider =
+StateNotifierProvider<CarDetailViewModel, bool>(
+        (ref) => CarDetailViewModel());
+
+final flyingCarViewModelProvider =
+StateNotifierProvider<CarDetailViewModel, bool>(
+        (ref) => CarDetailViewModel());
+
 final changeThemeProvider = StateNotifierProvider<CarDetailViewModel, bool>(
         (ref) => CarDetailViewModel());
 

@@ -70,7 +70,7 @@ class home extends StatelessWidget {
                       minimumSize: Size(150, 50),
                       primary: (_isValue) ? Colors.blue : Colors.orange),
                   onPressed: () => {
-                        Navigator.pushNamed(context, '/detail'),
+                        Navigator.pushNamed(context, '/carView'),
                       },
                   child: Text(
                     "Continue",
