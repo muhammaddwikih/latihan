@@ -35,10 +35,11 @@ class carView extends StatelessWidget {
         leading: InkWell(
           child: Container(
             margin: EdgeInsets.only(left: 10, top: 10),
-            child: Text(
-              "<",
-              style: TextStyle(fontSize: 24),
-            ),
+            child:Icon(Icons.arrow_back_ios),
+            // Text(
+            //   "<",
+            //   style: TextStyle(fontSize: 24),
+            // ),
           ),
           onTap: () {
             Navigator.pop(context);
