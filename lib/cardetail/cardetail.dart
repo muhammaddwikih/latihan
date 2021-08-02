@@ -2,10 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:latihan/cardetail/car_detail_view_model.dart';
+import 'package:latihan/core/model/Car_Model.dart';
 
 class CarDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    CarModel car = ModalRoute.of(context)!.settings.arguments as CarModel;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -40,8 +44,8 @@ class CarDetail extends StatelessWidget {
                 width: double.infinity,
                 height: 260,
                 margin: EdgeInsets.only(bottom: 10),
-                child: Image.asset('images/Beep_Beep_Medium_Vehicle.png',
-                    width: double.infinity, height: 200),
+                child: Image.asset(car.image,
+                    height: 200, fit: BoxFit.fitWidth,),
               )),
           Expanded(
             flex: 1,
@@ -49,7 +53,7 @@ class CarDetail extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: car.color,
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(50),
                           topRight: Radius.circular(50))),
@@ -65,16 +69,16 @@ class CarDetail extends StatelessWidget {
                       // Container(
                       //   child:
                       Text(
-                        "Sport Car",
-                        style: TextStyle(color: Colors.white, fontSize: 25),
+                        car.name,
+                        style: TextStyle(color: Colors.white, fontSize: 39, fontWeight: FontWeight.w600),
                       ),
                       // margin: EdgeInsets.only(top: 50,left: 20, right: 180),
                       // ),
                       Consumer(builder: (context, watch, child) {
-                        final _isPressed = watch(carDetailViewModelProvider);
+                        final _isPressed = watch(car.provider);
                         return GestureDetector(
                           onTap: () => context
-                              .read(carDetailViewModelProvider.notifier)
+                              .read(car.provider.notifier)
                               .favorite(),
                           child: Icon(
                             _isPressed
@@ -92,8 +96,8 @@ class CarDetail extends StatelessWidget {
 
                 Container(
                   child: Text(
-                    r"$55/day",
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    car.price,
+                    style: TextStyle(color: Colors.white, fontSize: 19, fontWeight: FontWeight.w400),
                   ),
                   margin: EdgeInsets.only(top: 90, left: 20),
                 ),
@@ -102,15 +106,15 @@ class CarDetail extends StatelessWidget {
                     "Description",
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold),
+                        fontSize: 19,
+                        fontWeight: FontWeight.w600),
                   ),
                   margin: EdgeInsets.only(top: 140, left: 20),
                 ),
                 Container(
                   child: Text(
                     "Wanna ride the coolest sport car in the world?",
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w400),
                   ),
                   margin: EdgeInsets.only(top: 170, left: 20),
                 ),
@@ -118,14 +122,14 @@ class CarDetail extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          minimumSize: Size(150, 50), primary: Colors.white),
+                          minimumSize: Size(315, 57), primary: Colors.white),
                       onPressed: () => {},
                       child: Text(
                         "Book Now",
                         style: TextStyle(
                             color: Colors.black, backgroundColor: Colors.white),
                       )),
-                  margin: EdgeInsets.only(top: 220, left: 20, right: 20),
+                  margin: EdgeInsets.only(top: 220, left: 30, right: 30, bottom: 30),
                 ),
               ],
             ),

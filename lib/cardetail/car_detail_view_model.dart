@@ -5,19 +5,19 @@ final carDetailViewModelProvider =
         (ref) => CarDetailViewModel());
 
 final electricCarViewModelProvider =
-StateNotifierProvider<CarDetailViewModel, bool>(
+    StateNotifierProvider<CarDetailViewModel, bool>(
         (ref) => CarDetailViewModel());
 
 final classicCarViewModelProvider =
-StateNotifierProvider<CarDetailViewModel, bool>(
+    StateNotifierProvider<CarDetailViewModel, bool>(
         (ref) => CarDetailViewModel());
 
 final flyingCarViewModelProvider =
-StateNotifierProvider<CarDetailViewModel, bool>(
+    StateNotifierProvider<CarDetailViewModel, bool>(
         (ref) => CarDetailViewModel());
 
 final changeThemeProvider = StateNotifierProvider<CarDetailViewModel, bool>(
-        (ref) => CarDetailViewModel());
+    (ref) => CarDetailViewModel());
 
 class CarDetailViewModel extends StateNotifier<bool> {
   CarDetailViewModel() : super(false);
@@ -29,6 +29,7 @@ class CarDetailViewModel extends StateNotifier<bool> {
       state = true;
     }
   }
+
   void changeTheme() {
     if (state == true) {
       state = false;

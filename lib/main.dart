@@ -22,7 +22,7 @@ class MyApp extends ConsumerWidget {
       theme: _theme,
       initialRoute: '/',
       routes:{
-        '/': (context) => home(),
+        '/': (context) => Home(),
         '/detail': (context) => CarDetail(),
         '/carView': (context) => carView(),
         '/classicDetail': (context) => ClassicCarDetail(),
